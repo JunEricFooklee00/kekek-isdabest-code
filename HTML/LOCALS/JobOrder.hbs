@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=chrome">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EMS</title>
+        <script src="https://kit.fontawesome.com/3913d1359b.js" crossorigin="anonymous"></script>
+        <link rel="shortcut icon" href="../CSS/hehe.png">
+        <link rel="stylesheet" href="./CSS/JobOrder.css">
+        <style>
+            Area {text-align: center;}
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/ClientInterface" class="logo">
+                        <img src="../CSS/emslogo.gif" alt="">
+                        <span class = "nav-item"> EMS</span>
+                </a></li>
+                <li><a href="/ClientInterface">
+                    <i class="fa-sharp fa-solid fa-house"></i>
+                    <span class="nav-item">Home</span>
+                </a></li>
+
+                <li><a><form action="JobOrderLink" method="post" id="lezgo">
+                    <input type="hidden" name="name" value="{{user.name}}">
+                    <input type="hidden" name="id" value="{{user.id}}">
+                    <i class="fa-sharp fa-solid fa-briefcase"></i>
+                    <span class="nav-item">Job Order</span>
+                    <input type="submit"></form>
+                </a></li>
+
+                <li><a href="/RecommendedWorker">
+                    <i class="fa-solid fa-address-card"></i>
+                    <span class="nav-item">Recommended Worker</span>
+                </a></li>
+                <li><a href="/ClientSettings">
+                    <i class="fa-sharp fa-solid fa-gear"></i>
+                    <span class="nav-item">Settings</span>
+                </a></li>
+                </a></li>
+                    <li><a href="#" class="logout">
+                    <i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
+                    <span class="nav-item">Log out</span>
+                </a></li>
+            </ul>
+        </nav>
+        
+        <div class="container">
+                
+            <header style="text-align: center;">Job Order</header>
+
+            <form class="form" action="/JobOrder" method="post">
+                <table>
+                    <tr>
+                        <td> <b style ="font-size: 12px">Client Name:</b> </td>
+                        <th scope="col"><b style ="font-size: 12px">{{user.name}}</b></th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="TypeOfWork"> <b style ="font-size: 12px">Scope of Work:</b></label> </th>
+                        <th scope="row">
+                            <select name="TypeOfWork" id="dropdown" style="width: 100%;">
+                                <option value="none" selected disabled hidden>Select an Option</option>
+                                <option value="Site Preperation">Site Preperation
+                                </option>
+                                <option value="Carpentry Works">Carpentry Works</option>
+                                <option value="Mechanical Works">Mechanical Works</option>
+                                <option value="Electrical Works">Electrical Works</option>
+                                <option value="Painting Works">Painting Works</option>
+                                <option value="Thermal & Moisture Protection Works">Thermal and Moisture Protection Works</option>
+                            </select>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="TypeOfJob"> <b style ="font-size: 12px"> Subdivision of scope work:</b></label></th>
+                        <th scope="row"><label for="TypeOfJob"> <b style ="font-size: 12px"> 
+                            <select name="TypeOfJob" id="dropdown" style="width: 100%; padding: 8px 12px;">
+                                <option value="none" selected disabled hidden>Select an Option</option>
+                                <option value="Installation">Masonry</option>
+                                <option value="Renovation">Plumbing</option>
+                                <option value="Repair">Electrician</option>
+                            </select></td></b></label></th>
+                    </tr>
+                    <tr>
+                         <th scope="row"> <b style ="font-size: 12px">Unit area for the job:</b></th>
+                        <th scope="row">   
+                            <input type="text" name="Area" class="Area" placeholder="Area" size="7" maxlength="11" style="left: 10px;" autocomplete="off">
+                            <select name="Unit" id="dropdown" style="width: 60%;">
+                                <option value="none" selected disabled hidden>Select an Option</option>
+                                <option value=" CubicMeter">Cubic Meter</option>
+                                <option value=" SquareMeter">Square Meter</option>
+                                <option value=" Meter">Meter</option>
+                            </select>
+                        </th>
+                    </tr>
+                    <tr>
+                         <th scope="row"> <b style ="font-size: 12px;">Location:</b></th>
+                        <th scope="row"> <input type="text" name="Location" placeholder="Location" style="width: 100%;" autocomplete="off"></th>
+
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="StartingDate"><b style ="font-size: 12px">Starting Date:</b></label></th>
+                        <th scope="row"><input type="date" name="StartingDate" style="font-size: 15px" max="2023-12-31"> </th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><b style ="font-size: 12px;">Days of Expected to Finish:</b></th>
+                        <th scope="row"> <b style ="font-size: 12px;"></b>  <input type="text" name="ExpectedFinishDate" placeholder="Days" size="15">
+                    </tr>
+                </table>
+
+                <div class="form-group"> 
+                    <input type="hidden" name="name" value="{{user.name}}">
+                    <input type="hidden" name="id" value="{{user.id}}">
+                </div>
+
+                <input type="submit" class="submit">
+            </form>
+        </div>
+
+        {{!-- <script>
+            const Subwork = document.querySelectorAll('TypeofWork')
+
+            function subdivision(){
+                if(Subwork.value.match)
+            }
+            let expDate = document.querySelector(".EFDate")
+            let Area = document.querySelector(".Area")
+            let selectJob = document.querySelector(".selectionJob")
+
+            function inputDate(){
+                if(expDate.value.match("Other")){
+                    Area.style = "display: flex;"
+                    typeJob.style = "margin-left: -60px;"
+                } else{
+                    Area.style = "display: none;"
+                }
+            }
+        </script> --}}
+    </body>
+</html>
